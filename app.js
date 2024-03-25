@@ -1,7 +1,8 @@
 // require libraries
+require('dotenv').config();
 const express = require('express');
 const Tenor = require('tenorjs').client({
-  Key: 'AIzaSyARncFF4Qr_MdvpFZ2ilzgdVvNnEjahhck',
+  Key: process.env.API_KEY,
   Filter: 'high',
   Locale: 'en_US',
 });
@@ -30,7 +31,7 @@ app.set('views', './views');
 
 // routes
 app.get('/', (req, res) => {
-  term = '';
+  term = 'dancing';
   if (req.query.term) {
     term = req.query.term;
   }
